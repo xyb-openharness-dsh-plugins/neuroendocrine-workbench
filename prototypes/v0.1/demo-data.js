@@ -42,10 +42,9 @@ window.NET_DEMO = {
       support: { summary: '支持与效果（患者原话）', items: [['营养措施','待记录'],['效果','“我想把最近的检查整理好再去复诊。”（改写句，非一手访谈）']] }
     }}
   ],
-  trials: [
-    { title: '晚期胰腺 NET 靶向治疗研究（模拟条目）', id: 'SIM-NET-001', phase: 'II 期 · 模拟', match: 82, tags: ['胰腺 NET','既往 SSA'], reason: '模拟规则：原发部位与既往治疗标签相符；匹配指数仅演示排序，不代表真实入组资格。', criteria: '模拟入组条件原文占位：组织学确诊的胰腺 NET；其他条件请见正式来源。', source: '本地演示 sqlite · 模拟数据 · 2026-10-20' },
-    { title: '生长抑素受体阳性 NET 研究（模拟条目）', id: 'SIM-NET-002', phase: 'III 期 · 模拟', match: 67, tags: ['SSTR 阳性','NET'], reason: '模拟规则：示例病理标签部分匹配；需由患者与研究中心核对完整条件。', criteria: '模拟入组条件原文占位：需有正式 SSTR 显像记录；此条不对应真实试验。', source: '外部工具检索 · 模拟结果 · 2026-10-22' },
-    { title: '遗传性 NET 随访队列（模拟条目）', id: 'SIM-NET-003', phase: '观察性 · 模拟', match: 41, tags: ['MEN1','家系'], reason: '模拟规则：基因结果未完善，仅作低置信度结果展示示例。', criteria: '模拟入组条件原文占位：请勿据此判断是否符合真实研究。', source: '本地演示 sqlite · 模拟数据 · 2026-10-18' }
+  trialSources: [
+    { id: 'local', name: '本地 NET 试验库', status: '未接入', detail: 'SQLite 数据库尚未生成或加载；不能据此判断本地无试验。', lastAttempt: null },
+    { id: 'external', name: '外部注册平台/工具', status: '未接入', detail: '外部检索技能尚未连接；本次没有发起外部查询。', lastAttempt: null }
   ],
   notes: [
     { date: '2026-10-18', kind: '指标记录', text: '记录 CgA、5-HIAA、NSE；以上数值均为模拟值。' },
