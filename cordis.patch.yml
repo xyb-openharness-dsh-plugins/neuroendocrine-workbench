@@ -1,0 +1,7 @@
+- insert:
+    - id: neuroendocrine-workbench-main
+      name: "@community/neuroendocrine-workbench"
+      # 装机后资料目录固定在宿主 home 下的 neuroendocrine-workbench/（dshHomePath），
+      # 与其余兄弟工作台一致；不配则退到内存演示库。
+      config:
+        root: !!js dshHomePath('neuroendocrine-workbench')

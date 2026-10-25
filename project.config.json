@@ -1,0 +1,17 @@
+{
+  "packageName": "@community/neuroendocrine-workbench",
+  "title": "小肽宝 · 神经内分泌肿瘤工作台",
+  "repository": "https://github.com/xyb-openharness-dsh-plugins/neuroendocrine-workbench",
+  "description": "神经内分泌和肾上腺肿瘤（NET）患者工作台：分级档案、生化+影像双线随访、SSA 注射与 PRRT 治疗事件、基因/病理与临床试验匹配",
+  "slug": "neuroendocrine-workbench",
+  "layoutMode": "business-first",
+  "businessWidth": 0.65,
+  "targetUsers": "NET 患者本人（默认）与家属；随访医生仅引用不代判",
+  "scenario": "分化良好 NET 长程管理：确诊分级（Ki-67/IHC/基因）→ 治疗线（SSA/PRRT/靶向）→ 生化+影像双线随访",
+  "coreFlow": [
+    "建档：录入分级档案（Ki-67/分化/IHC 原文）与基因检测结果",
+    "记录：逐次录入 CgA/5-HIAA 等生化、影像报告与 SSA 注射事件",
+    "回顾：分系列指标卡 + 趋势折线看长期走势，生成就诊问题清单；按基因/病理匹配临床试验"
+  ],
+  "completion": "患者能回答“我现在是什么分级、指标趋势如何、下一次该查什么、有没有适合我的试验”"
+}
