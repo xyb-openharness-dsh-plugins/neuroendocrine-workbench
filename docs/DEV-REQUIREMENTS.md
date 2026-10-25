@@ -29,5 +29,5 @@
 
 ## 六、闸口留痕
 - **G1（调研/SPEC）**：2026-10-25 完成 M1 三路调研（医学核数/用户研究/家族对比），产物：USER-RESEARCH v0.2、DIFF-MATRIX（一级重名率实测 63.6%≤70%✅）、SCENARIOS v0.2（一期 S1/S2/S3/S5/S7）、SPEC v0.2、INTERACTION-DESIGN v1（28 号三张表）、SOURCES M01–M10。用户未应答，**按推荐项执行，签认待补**（可回退：用户可改一期场景集/页面树，改动走 DESIGN-SESSION 版本留痕）。
-- **G2（原型）**：M2 原型 v0.1.6 增加顶栏 AI 对话开合入口与逐页“和 AI 讨论”按钮；页面草稿按页携带模拟关键信息，目标事件按 34 号 `neuroendocrine:agent-draft` 且 `send:true`，独立预览明确是宿主模拟、不发送。当前仓库客户端没有 agent-draft 桥，原生会话也未接通。AI 行为未做浏览器实测；当前版截图四张、C1–C12、X1–X4、用户视觉确认均未完成。**G2 未通过**。原型状态与差距见 PROTOTYPE-REVIEW、HVT-REVIEW、ONE-CHART-SPEC、AGENT-PANE-DESIGN。
+- **G2（原型）**：M2 原型 v0.1.7 增加顶栏 AI 对话开合入口与逐页“和 AI 讨论”按钮；页面草稿按页携带模拟关键信息，目标事件按 34 号 `neuroendocrine:agent-draft` 且 `send:true`，独立预览明确是宿主模拟、不发送。当前仓库客户端没有 agent-draft 桥，原生会话也未接通。AI 行为未做浏览器实测；当前版截图四张、C1–C12、X1–X4、用户视觉确认均未完成。**G2 未通过**。原型状态与差距见 PROTOTYPE-REVIEW、HVT-REVIEW、ONE-CHART-SPEC、AGENT-PANE-DESIGN。
 - G3（数据模型）：待 M3。

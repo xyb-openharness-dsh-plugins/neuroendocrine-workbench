@@ -25,6 +25,6 @@
 
 ## 原型 / 会话记录
 
-- 原型：`prototypes/v0.1/index.html`，v0.1.6；顶栏为唯一开合入口（无浮动重复入口）；哈希见 `docs/PROTOTYPE-REVIEW.md`。
+- 原型：`prototypes/v0.1/index.html`，v0.1.7；顶栏为唯一开合入口（无浮动重复入口）；哈希见 `docs/PROTOTYPE-REVIEW.md`。
 - 顶栏开关与逐页草稿按钮：见 `prototypes/v0.1/index.html`、`prototypes/v0.1/app.js`。
 - 当前用户授权范围：本轮明确要求添加原生 AI 对话栏入口与逐页讨论按钮；原生桥接仍需后续按宿主契约实现并通过 V2/V3 验收。
