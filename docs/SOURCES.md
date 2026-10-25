@@ -21,3 +21,21 @@
 U01：[hhx465453939/agent-taste-seed-system](https://github.com/hhx465453939/agent-taste-seed-system)，核对于 2026-10-16，提交 f447763a8e106effb2a4c8fdc5fd93cbb2ca2045。脚手架引用其方法，不随包复制原种子库或艺术素材。路径差异与适配见 [Taste Seed 指南](08-TASTE-SEED.md)。开发工具的本机安装状态不等于脚手架已捆绑该资源。
 
 官方规范、第三方资源和品牌素材保留真实署名与许可说明；它们与教程中的匿名业务案例用途不同。
+
+## 医学来源（NET，检索日 2026-10-25，M1 代理检索+整理）
+
+> 用于**范围与口径参照**，不复制临床内容；产品内文案只做"引用原文+语境栏解释"，判定归医生。逐条局限见 USER-RESEARCH.md。
+
+- M01 NCCN Neuroendocrine and Adrenal Tumors，官网显示 **Version 3.2025**（https://www.nccn.org/guidelines/guidelines-detail?id=1448；含肾上腺；PDF 细节未注册核实）。
+- M02 WHO 消化系统肿瘤分类第 5 版（2019/2022）：G1 Ki-67 ≤2%、G2 3–20%、NET G3 >20% 分化良好、NEC 低分化（常 >55%）。
+- M03 生化标志物：CgA 敏感但受 PPI（停药 >2 周复测）/肾功能干扰；24h 尿 5-HIAA >25 mg/24h 提示类癌综合征，受饮食影响；参考区间以本机构为准。
+- M04 影像：68Ga-DOTATATE PET/CT 取代 111In-SRI（初始分期/PRRT 资格/疗效监测）；常规 CT/MRI 每 3–12 个月（NANETS 适宜标准、Hofman 2015）。
+- M05 SSA：奥曲肽 LAR 每 4 周肌注 10–40 mg（齐鲁 2023 首仿）；兰瑞肽 Autogel 120 mg/28 天深部皮下（可自注）。NMPA 状态：已上市（兰瑞肽 GEP-NET 适应症批号细节未核实）。
+- M06 PRRT：177Lu-DOTATATE 4 周期 × 7.4 GBq/8 周 + 氨基酸肾保护；国内 Lutathera 未正式获批，先通仿制 2025-04 CDE 受理（截至检索日未获批，**未核实**）。
+- M07 靶向：舒尼替尼（pNET）、依维莫司（pNET，医保）、索凡替尼（epNET，2020 NMPA）。
+- M08 遗传：MEN1/VHL/NF1/RET/SDHx；PPGL 基因包 SDHB/C/D/A、SDHAF2、VHL、RET、NF1、MAX、TMEM127、MEN1；级联检测先行于监测。
+- M09 PPGL：血浆游离 MN/CNs 首选筛查；术前 α 阻滞 7–14 天（酚苄明/多沙唑嗪）后加 β；术后终身每年 MN（Endocrine Society 2014；2024 国际共识）。
+- M10 CSCO《神经内分泌肿瘤诊疗指南》**2025 版**（2025-04-25 发布）；ENETS 分部位滚动更新；NANETS 2025 Compendium。
+
+用户研究证据（患者研究/PRO/组织/线索四层）全量清单见 USER-RESEARCH.md v0.2。
+

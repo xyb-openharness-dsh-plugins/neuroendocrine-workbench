@@ -1,7 +1,7 @@
 # 互动设计记录
 
 状态：设计者待对齐。继承用户已明确的决定，未核实的配置素材不自动视为设计确认。
-当前阶段/范围：designer-alignment → research → scenarios → specification → independent-review → prototype → implementation；已有项目从当前未决项继续，不重复重置。
+当前阶段/范围：M1 三路桌面调研与 SPEC v0.2 已形成；**G1 待用户签认**，签认前不进入 M2 原型。DESIGN-REVIEW 独立评审待实际执行，不以本轮自审冒充。后续顺序：G1 → 交互路径确认 → prototype/G2 → schema/G3 → implementation。
 设计提示词：docs/DESIGN-PROMPT.md；设计者章程：docs/DESIGNER-BRIEF.md；实际独立审查：docs/DESIGN-REVIEW.md。
 权威内容：docs/BRIEF.md、docs/SPEC.md；UI 与数据设计链接：...
 
