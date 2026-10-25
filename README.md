@@ -2,7 +2,7 @@
 
 神经内分泌和肾上腺肿瘤（NET）患者工作台：分级档案、生化+影像双线随访、SSA 注射与 PRRT 治疗事件、基因/病理与临床试验匹配
 
-当前状态：M0 骨架 + M1 调研/SPEC 已完成，M2 原型草案可预览；真实业务尚未实现，G2 未签认。交互原型入口：[prototypes/v0.1/index.html](prototypes/v0.1/index.html)。原型记录：[PROTOTYPE-REVIEW](docs/PROTOTYPE-REVIEW.md)，交互路径：[INTERACTION-DESIGN](docs/INTERACTION-DESIGN.md)，HVT 审核：[HVT-REVIEW](docs/HVT-REVIEW.md)。项目提示词：[DESIGN-PROMPT](docs/DESIGN-PROMPT.md)，专用通用提示：[NEW-CANCER-WORKBENCH](prompts/NEW-CANCER-WORKBENCH.md)，需求：[BRIEF](docs/BRIEF.md)，规格：[SPEC](docs/SPEC.md)，先读 [AGENTS](AGENTS.md)。
+当前状态：M0 骨架 + M1 调研/SPEC 已完成，M2 原型 v0.1.5 可预览；真实业务尚未实现，G2 未签认。交互原型入口：[prototypes/v0.1/index.html](prototypes/v0.1/index.html)。原型记录：[PROTOTYPE-REVIEW](docs/PROTOTYPE-REVIEW.md)，交互路径：[INTERACTION-DESIGN](docs/INTERACTION-DESIGN.md)，HVT 审核：[HVT-REVIEW](docs/HVT-REVIEW.md)。项目提示词：[DESIGN-PROMPT](docs/DESIGN-PROMPT.md)，专用通用提示：[NEW-CANCER-WORKBENCH](prompts/NEW-CANCER-WORKBENCH.md)，需求：[BRIEF](docs/BRIEF.md)，规格：[SPEC](docs/SPEC.md)，先读 [AGENTS](AGENTS.md)。
 
 
 <details>

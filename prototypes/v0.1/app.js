@@ -5,6 +5,7 @@
   ];
   const main = document.getElementById('main');
   const nav = document.getElementById('nav');
+  let currentPage='dashboard';
   const chartState = { range: 'all', selected: new Set(['cga','h5hiaa']), showValues: true, showGrid: true, pin: null };
   const metricEntries = data.metricSeries.flatMap(series => series.metrics.map(metric => ({ ...metric, seriesId: series.id, seriesTitle: series.title, color: series.color || metric.color })));
   const esc = (s='') => String(s).replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
@@ -68,10 +69,15 @@
     return out;
   }
   function setPage(id){
+    currentPage=id;
     if(location.hash!==`#${id}`) history.replaceState(null,'',`#${id}`);
     nav.querySelectorAll('[data-page]').forEach(b=>b.classList.toggle('active',b.dataset.page===id));
     const item=navItems.find(x=>x[0]===id); document.title=`${item?.[2]||'设置'} · 小泌宝`;
-    main.innerHTML=pages[id]?.()||pages.dashboard(); main.focus({preventScroll:true});
+    main.innerHTML=pages[id]?.()||pages.dashboard();
+    const pageHead=main.querySelector('.page-head');
+    if(pageHead){let actions=pageHead.querySelector('.page-actions');if(!actions){actions=document.createElement('div');actions.className='page-actions';pageHead.appendChild(actions);}const existing=[...pageHead.children].filter(el=>el!==actions);existing.forEach(el=>{if(el.matches('button'))actions.appendChild(el);});if(!actions.querySelector('[data-discuss]')){const discuss=document.createElement('button');discuss.type='button';discuss.className='discuss-btn';discuss.textContent='和 AI 讨论';discuss.setAttribute('data-discuss','');actions.appendChild(discuss);}}
+    main.focus({preventScroll:true});
+    main.querySelectorAll('[data-discuss]').forEach(button=>button.addEventListener('click',()=>discussCurrentPage()));
     main.querySelectorAll('[data-page]').forEach(b=>b.addEventListener('click',()=>setPage(b.dataset.page)));
     main.querySelectorAll('[data-action]').forEach(b=>b.addEventListener('click',()=>actions[b.dataset.action]?.(b)));
     main.querySelectorAll('[data-fold]').forEach(d=>d.addEventListener('toggle',()=>{}));
@@ -106,14 +112,36 @@
   const actions={
     pickMetrics:()=>openPicker(), addRecord:()=>toast('原型交互：打开“整理检查报告”候选流程（未保存模拟数据）。'),draft:()=>toast('已展示模拟的待核对草稿；确认前不会保存。'),edit:()=>toast('手工编辑入口为原型占位，正式版本待 G2/G3 后实现。'),addInjection:()=>toast('记录注射：原型表单占位（药物 / 剂量 / 日期 / 部位）。'),prrt:()=>toast('PRRT 周期档案为二期候选；当前只展示字段结构。'),match:()=>toast('已刷新模拟匹配结果；真实检索服务尚未接入。'),saveTrial:e=>{e.textContent='★ 已关注';toast('已在本地原型状态中标记关注（刷新后重置）。');},addSymptom:()=>toast('症状记录原型：患者自述，不做病因判断。'),addMood:()=>toast('心情记录原型：仅本地模拟，不保存。'),moodChoice:e=>toast(`已选“${e.textContent}”（模拟）。`),addQuestion:()=>toast('添加问题表单为原型占位。'),draftQuestion:()=>toast('已生成 2 条模拟问题草稿，请逐条核对后使用。'),editQuestion:()=>toast('问题编辑为原型占位。'),exportQuestions:()=>toast('就诊问题清单导出为原型占位。'),export:()=>toast('导出预览为原型占位；没有真实患者数据。'),correct:()=>toast('“改这一条”会建立更正版本；本原型未连接数据层。'),print:()=>window.print(),folder:()=>toast('原型不会打开真实目录选择器。'),parseMode:()=>toast('原型不收集凭据或上传文件。'),saveSettings:()=>toast('模拟设置已暂存（刷新后重置）。'),cancelSettings:()=>setPage('dashboard')
   };
+  const pageDiscussion={dashboard:'请结合当前看板中已记录的近期指标、下次注射与复查安排，帮我整理需要核对的问题。只引用已记录内容，指出缺项，不作诊断或治疗建议。',records:'请协助整理本页模拟病理、化验和影像资料的核对清单。不要补全缺失事实，不把未核对内容当成已确认。',profile:'请帮我解释本页病理/IHC/基因档案中的术语并整理待核对问题。保留报告原文，不计算分级或判断风险。',metrics:'请按当前页面选中的指标系列和时间范围，帮我整理数值、单位、日期、可比性限制与待核对来源。不要将不同指标互相比较或作病情判断。',onechart:'请讨论当前一图秀所选指标与时间范围。仅整理可见数值、单位、日期、来源和不同指标不可比的限制；不要推断病情。',injection:'请根据当前治疗历程模拟记录，帮我整理注射日期、方案原文和待核对问题。不提供用药建议。',trials:'请协助核对当前显示的试验资料来源、更新时间和入组条件原文。当前条目为模拟数据，不得判断真实适配或入组资格。',nutrition:'请把本页患者自述的饮食/排便记录整理成复诊可讨论的问题，不判断病因或给饮食处方。',wellbeing:'请帮我整理本页情绪/生活记录中患者明确选择分享的内容，先确认隐私边界，不诊断。',questions:'请协助整理当前就诊问题草稿，保留患者原意，标出资料缺项，不自动添加未确认事实。',saved:'请根据本页可见的非私密收藏与记录，整理一份复诊回顾提纲；不要把收藏内容视为医学结论。',settings:'请解释本页设置项的用途与状态。不要包含本机路径、凭据或未验证数据。'};
+  function discussionContext(){
+    const metricLines=metricEntries.filter(m=>chartState.selected.has(m.id)).map(m=>`${m.short}: ${m.latest} ${m.unit} (${m.date}; 模拟值; 来源 ${m.sources?.at(-1)||m.source||'模拟报告'})`).join('\n');
+    const pageFacts={
+      dashboard:`病程：${data.profile.subtype}；报告原文分级：${data.profile.grade}；下一次注射：${data.next[0].value}，${data.next[0].date}；复查计划：${data.next[1].value}，${data.next[1].date}。`,
+      records:'本页列出病理/IHC、化验和影像模拟资料；真实报告未导入。',
+      profile:`病理模拟记录：${data.profile.grade}；Ki-67 ${data.profile.ki67}；原发部位 ${data.profile.primary}；基因项目状态仅为模拟占位。`,
+      metrics:metricLines||'未选择或尚无指标记录。',
+      onechart:`时间范围：${chartState.range}；所选指标：${metricLines||'无'}。不同指标不可互相比较。`,
+      injection:`下一次注射模拟计划：${data.next[0].value}，${data.next[0].date}；治疗阶段见本页折叠卡。`,
+      trials:'当前试验卡片全部是模拟数据，不能作为真实检索结果或入组判断。',
+      nutrition:'本页没有已确认的患者症状记录；当前仅展示模拟记录入口。',
+      wellbeing:'心情/心理内容默认视为私密，本讨论草稿不带入私密记录。',
+      questions:'页面显示的问题为模拟问题草稿，尚未作为患者确认事项。',
+      saved:'页面显示最近整理条目为模拟数据；不含私密记录。',
+      settings:'设置页仅显示模拟状态，不含本机路径或凭据。'
+    };
+    return `[页面：${navItems.find(item=>item[0]===currentPage)?.[2]||'设置'}]\n${pageFacts[currentPage]||'当前页暂无可带入的已确认事实。'}\n核对状态：以上均为演示模拟数据，不等于医学审核。\n缺项：真实资料来源、真实患者确认记录均未提供。`;
+  }
+  function discussCurrentPage(){const prompt=pageDiscussion[currentPage]||'请围绕当前页面可见信息提出核对问题，不补充未记录事实。';const context=discussionContext();const payload={type:'neuroendocrine:agent-draft',prompt:`${prompt}\n\n${context}`,send:true};const pane=document.getElementById('agentPane');const input=document.getElementById('agentInput');const contextLabel=document.getElementById('agentContextLabel');const state=document.getElementById('agentHostState');if(window.parent!==window){window.parent.postMessage(payload,location.origin);state.textContent='已请求原生 AI 对话 · 宿主确认状态';pane.hidden=false;syncAgentToggle();return;}pane.hidden=false;syncAgentToggle();input.value=payload.prompt;contextLabel.textContent=`当前页面：${navItems.find(item=>item[0]===currentPage)?.[2]||'设置'} · 宿主模拟`;document.getElementById('agentDraftStatus').textContent='本地原型草稿 · 未发送 · 非真实 DSH 会话';input.focus();}
+  function syncAgentToggle(){const pane=document.getElementById('agentPane'),button=document.getElementById('toggleAgent'),label=document.getElementById('agentToggleLabel');button.setAttribute('aria-expanded',String(!pane.hidden));label.textContent=pane.hidden?'打开 AI 对话':'收起 AI 对话';}
+  function toggleAgentPane(){const pane=document.getElementById('agentPane');pane.hidden=!pane.hidden;syncAgentToggle();}
   function toast(text){let t=document.querySelector('.toast');if(!t){t=document.createElement('div');t.className='toast';document.body.append(t);}t.textContent=text;t.classList.add('visible');clearTimeout(window.__toastTimer);window.__toastTimer=setTimeout(()=>t.classList.remove('visible'),2800);}
   function openPicker(){const dialog=document.getElementById('metricPicker'), opts=document.getElementById('metricOptions');const selected=new Set([...document.querySelectorAll('[data-chart-id]')].map(x=>x.dataset.chartId));opts.innerHTML=data.metricSeries.map(s=>`<fieldset><legend>${s.title}</legend>${s.metrics.map(m=>`<label class="metric-option"><input type="checkbox" value="${m.id}" ${selected.has(m.id)?'checked':''}><span><strong>${m.name}</strong><small>${m.latest} ${m.unit} · ${m.date}</small></span></label>`).join('')}</fieldset>`).join('');const checks=[...opts.querySelectorAll('input[type=checkbox]')];const limit=()=>{const marked=checks.filter(x=>x.checked);checks.forEach(x=>{x.disabled=!x.checked&&marked.length>=4;});let hint=opts.querySelector('.picker-limit');if(!hint){hint=document.createElement('p');hint.className='picker-limit';opts.prepend(hint);}hint.textContent=`最多同时选择 4 项（已选 ${marked.length} 项）`;};checks.forEach(x=>x.addEventListener('change',limit));limit();dialog.showModal();document.getElementById('applyMetrics').onclick=(e)=>{e.preventDefault();const ids=[...opts.querySelectorAll('input:checked')].map(x=>x.value);if(!ids.length){toast('至少选择一项指标。');return;}const picked=data.metricSeries.flatMap(s=>s.metrics).filter(m=>ids.includes(m.id));document.getElementById('oneChartList').innerHTML=picked.length?picked.map(m=>`<div data-chart-id="${m.id}">${chartRow(m)}</div>`).join(''):'<p class="empty-state">这个时间窗里没有所选指标。请扩大时间范围或重新选择指标。</p>';document.getElementById('chartSubtitle').textContent=`已选 ${picked.length} 项指标 · 模拟数据`;dialog.close();};}
   document.querySelectorAll('.flip-btn').forEach(()=>{});
   document.addEventListener('click',e=>{const btn=e.target.closest('.metric-card-inner');if(btn){const card=btn.closest('.metric-card');const flipped=card.classList.toggle('flipped');btn.setAttribute('aria-pressed',String(flipped));}});
   document.querySelectorAll('.suggestion').forEach(s=>s.addEventListener('click',()=>{document.getElementById('agentInput').value=s.dataset.prompt;document.getElementById('agentInput').focus();}));
-  document.getElementById('sendAgent').addEventListener('click',()=>{const input=document.getElementById('agentInput');if(input.value.trim())toast('AI 服务未连接；提示词仍留在输入框中，没有发送。');});
-  document.getElementById('hideAgent').addEventListener('click',()=>{document.getElementById('agentPane').hidden=true;document.getElementById('showAgent').hidden=false;});
-  document.getElementById('showAgent').addEventListener('click',()=>{document.getElementById('agentPane').hidden=false;document.getElementById('showAgent').hidden=true;});
+  document.getElementById('toggleAgent').addEventListener('click',toggleAgentPane);
+  document.getElementById('sendAgent').addEventListener('click',()=>{const input=document.getElementById('agentInput');if(!input.value.trim())return;if(window.parent!==window){window.parent.postMessage({type:'neuroendocrine:agent-draft',prompt:input.value,send:true},location.origin);document.getElementById('agentDraftStatus').textContent='已请求原生会话发送 · 等待宿主确认';}else{toast('本地原型未接通 DSH 原生会话；草稿未发送。');}});
+  window.addEventListener('message',event=>{if(event.source!==window.parent||event.origin!==location.origin)return;if(event.data?.type==='neuroendocrine:agent-draft-status'){document.getElementById('agentHostState').textContent=event.data.status==='ready'?'原生 AI 对话已连接':'原生 AI 对话暂不可用';}});
   window.addEventListener('beforeprint',()=>document.querySelectorAll('details.phase-fold').forEach(d=>{d.dataset.wasOpen=d.open?'1':'0';d.open=true;}));
   window.addEventListener('afterprint',()=>document.querySelectorAll('details.phase-fold').forEach(d=>{d.open=d.dataset.wasOpen==='1';delete d.dataset.wasOpen;}));
   window.addEventListener('hashchange',()=>{const id=location.hash.slice(1);if(pages[id])setPage(id);});

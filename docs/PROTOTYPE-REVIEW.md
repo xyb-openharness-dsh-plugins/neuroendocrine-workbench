@@ -1,18 +1,19 @@
-# HTML 交互原型确认记录 · 小泌宝 v0.1.3
+# HTML 交互原型确认记录 · 小泌宝 v0.1.6
 
-状态：**按用户描述重做指标卡与一图秀，并完成部分 DOM/页面事件验证；G2 用户确认待完成**。页面内事件验证不等同真实用户点击或完整验收。
+状态：**按用户要求重做指标卡/一图秀，并加入顶栏唯一 AI 面板开合入口与逐页“和 AI 讨论”；G2 用户确认待完成**。页面内事件验证不等同真实用户点击或完整验收。
 
-- HTML 路径：`prototypes/v0.1/index.html`；原型版本：0.1.3，与包 VERSION 0.1.3 对齐。
-- 文件 SHA-256（当前 v0.1.3，来源字段/日期筛选补丁后）：
-  - index.html `be5ffe1ecb0de01c91b2dd80485c9764a8ae36b3a1d5d5ca0dc85e27ca153b80`
-  - style.css `248387770750f500daa619a19e96219fc0d4cf9da90a6032737a6d94f5fbc2f2`
-  - app.js `4d50d9f02eeda9f61fbb5551e7344ed959f8106f0133441891fa6e05fd7a6dc2`
+- HTML 路径：`prototypes/v0.1/index.html`；原型版本：0.1.6，与包 VERSION 0.1.6 对齐。
+- 文件 SHA-256（当前 v0.1.6）：
+  - index.html `d57bc92680a622ac551680b3f9a52b03cfce56c12cc1924c72c1c248b6708c44`
+  - style.css `1cc55e4293e52866812e4513066b78a0b181dd5882e0e4afd0f8f1283a9a22f0`
+  - app.js `68f6e3fd090add4c6aaefff0115ec5bac221f4e9ebd1d06bff45cddf16b99375`
   - demo-data.js `a61ea749611d261f6bc19f2edf07157ab4374c7fcd70a44c9c1c3476568c77ab`
 - 当前 SPEC/场景/交互路径：SPEC v0.2 / SCENARIOS v0.2 / INTERACTION-DESIGN v1（路径表存在，逐条点击未完成）。
 - 预览环境：ZCode IAB，1280×720，`http://127.0.0.1:8876/`。首页 DOM 快照实测显示小泌宝看板、模拟档案、指标入口、AI 面板与页脚版本；hash 直达 `#metrics`、`#onechart`、`#trials`、`#injection` 后 DOM 分别显示系列指标、一图秀图表与不可比说明、模拟匹配卡、三张默认收起的治疗折叠卡。IAB locator 点击超时，浏览器截图 surface preparation 也超时。
+- AI 状态稿（v0.1.6）：顶栏是唯一开合入口，浮动重复入口已删除；所有一级页面均在页头生成“和 AI 讨论”。页面摘要区分模拟/未核对/缺项，心理内容不带入且不含本机路径/凭据。宿主内嵌分支按 34 号发 `neuroendocrine:agent-draft`/`send:true`；独立预览只填本地草稿并显示“宿主模拟”。项目 `lib/client.js` 仍无 agent-draft/native conversation bridge，故真实原生面板未接通；按钮原生点击、session 创建/复用、草稿冲突与发送均未实测。
 - 唯一实渲截图：`docs/assets/prototype-v0.1/dashboard-1280x720.png`（1280×720，采集时旧品牌为“小肽宝”、版本 v0.1；目前截图过期，仅作布局草稿证据）。README 当前有此图 1 张；要求 ≥4 张，目前差 3 张。
 - 模拟数据：`prototypes/v0.1/demo-data.js` 是原型内唯一演示数据源；临床试验条目、本地/外部结果、匹配指数都是模拟数据，不联网、不构成适配判断。
-- 覆盖：看板 / 病情整理 / 分级与基因 / 指标系列 / 一图秀 / 注射与周期 / 试验匹配 / 腹泻与饮食 / 慢病心晴 / 就诊问题 / 收藏回顾 / 设置。AI 面板目前为原型自绘占位，不是 DSH 原生 agent-draft 链路；病情整理、编辑、添加、导出多数为 toast 占位。
+- 覆盖：看板 / 病情整理 / 分级与基因 / 指标系列 / 一图秀 / 注射与周期 / 试验匹配 / 腹泻与饮食 / 慢病心晴 / 就诊问题 / 收藏回顾 / 设置。各页含“和 AI 讨论”按钮，顶栏可收起/重开右侧状态稿；页面摘要按场景生成。协议遵循 34 号 `neuroendocrine:agent-draft` + `send:true`，但宿主原生 bridge 未实现；独立运行只填本地模拟草稿、不发送。病情整理、编辑、添加、导出多数为 toast 占位。
 - 折叠治疗卡：HTML 使用原生 `<details>/<summary>`，数据 3 个治疗阶段；是否默认全收、打印展开及五块顺序尚未经浏览器实测/printToPDF，**未验证**。
 - 一图秀（v0.1.3）：左栏时间 chips、按系列即时勾选、末点/网格开关、最多 4 项、全期 min/max 独立缩放、图例全期范围、pin 值/单位/日期/来源已写入。页面 DOM 实测 3 个月范围只留 09/10 月点、图例保留全期；页面事件勾选 NSE 后第三条趋势出现；页面事件点选 CgA 188 显示 188 ng/mL · 07-14 与“模拟报告 · 2026-07-14”。IAB locator 原生点击超时，上述为页面内事件核对，不算鼠标验收。其余 C1–C12 尚未全验。
 - 指标卡（v0.1.3）：DOM 显示分类色点/当前值/前次变化/记录数/日期，背面 sparkline/首末值日期/来源。页面事件翻转后 aria-pressed=true，卡片 rect 215.55×246；未测翻转前后尺寸对比、多卡独立性、键盘与 reduce-motion。

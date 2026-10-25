@@ -82,7 +82,7 @@ C 为需求规格文档覆盖初评，不把 HTML 原型冒充业务实现；S2/
 | --- | --- | --- | --- |
 | P1 HTML 首页 | `prototypes/v0.1/index.html` | 1（DOM 实测） | 0.1.3 重载后的 IAB DOM 显示“小泌宝”、版本 chip 与页脚；当前模块代码有 DOM/页面事件部分核对；尚无关于页 |
 | P2 应用首页 | 装进 DSH NEXT 后真实界面 | 未验证 | DSH NEXT profile 安装受 pnpm 最短发布等待策略阻塞，NET 未登记 |
-| P3 单一来源 | `VERSION` 与校验脚本 | 0 | VERSION/package.json/原型当前均写 0.1.3；版本同步检查脚本未实现 |
+| P3 单一来源 | `VERSION` 与校验脚本 | 0 | VERSION/package.json/原型当前均写 0.1.6；版本同步检查脚本未实现 |
 | P4 可追溯 | 版本 chip / 关于 | 0 | 页面有日期，无构建渠道/来源；无关于页 |
 | P5 状态如实 | README / 发布记录 | 1 | README 明示“接入骨架，尚未实现真实业务”；本文写明未验证 |
 
