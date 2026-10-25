@@ -1,6 +1,6 @@
 {
   "packageName": "@community/neuroendocrine-workbench",
-  "title": "小肽宝 · 神经内分泌肿瘤工作台",
+  "title": "小泌宝 · 神经内分泌肿瘤工作台",
   "repository": "https://github.com/xyb-openharness-dsh-plugins/neuroendocrine-workbench",
   "description": "神经内分泌和肾上腺肿瘤（NET）患者工作台：分级档案、生化+影像双线随访、SSA 注射与 PRRT 治疗事件、基因/病理与临床试验匹配",
   "slug": "neuroendocrine-workbench",

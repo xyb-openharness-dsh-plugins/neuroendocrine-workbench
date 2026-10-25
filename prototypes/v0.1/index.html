@@ -4,14 +4,14 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="theme-color" content="#f5f3ef">
-  <title>小肽宝 · 神经内分泌肿瘤工作台</title>
+  <title>小泌宝 · 神经内分泌肿瘤工作台</title>
   <link rel="stylesheet" href="./style.css">
 </head>
 <body>
   <div class="app-shell">
     <header class="topbar">
-      <a class="brand" href="#dashboard" aria-label="小肽宝看板"><span class="brand-mark">肽</span><span><strong>小肽宝</strong><small>神经内分泌肿瘤工作台</small></span></a>
-      <div class="topbar-right"><span class="demo-badge">模拟数据 · 原型 v0.1.1</span><button class="icon-btn" data-page="settings" aria-label="设置">⚙ <span>设置</span></button><button class="avatar" aria-label="当前档案：林女士">林</button></div>
+      <a class="brand" href="#dashboard" aria-label="小泌宝看板"><span class="brand-mark">泌</span><span><strong>小泌宝</strong><small>神经内分泌肿瘤工作台</small></span></a>
+      <div class="topbar-right"><span class="demo-badge">模拟数据 · 原型 v0.1.2</span><button class="icon-btn" data-page="settings" aria-label="设置">⚙ <span>设置</span></button><button class="avatar" aria-label="当前档案：林女士">林</button></div>
     </header>
     <div class="workspace">
       <aside class="sidebar" aria-label="工作台导航">
@@ -28,7 +28,7 @@
       </aside>
       <button id="showAgent" class="show-agent" hidden>✦ 打开 AI 对话</button>
     </div>
-    <footer class="footer"><span>小肽宝 · 模拟档案，仅用于交互评审</span><span>原型 v0.1.1 · 构建日 2026-10-25 · 本地原型</span></footer>
+    <footer class="footer"><span>小泌宝 · 模拟档案，仅用于交互评审</span><span>原型 v0.1.2 · 构建日 2026-10-25 · 本地原型</span></footer>
   </div>
   <dialog id="metricPicker" class="dialog"><form method="dialog"><div class="dialog-head"><div><p class="eyebrow">一图秀</p><h2>选择要展示的指标</h2></div><button class="icon-btn" aria-label="关闭">×</button></div><p class="muted">选择后将以同一份记录生成趋势图。报告分类仅作注释，不进入数值趋势。</p><div id="metricOptions" class="metric-options"></div><div class="dialog-actions"><button class="text-btn" value="cancel">取消</button><button class="primary-btn" id="applyMetrics" value="ok">显示选中指标</button></div></form></dialog>
   <script src="./demo-data.js"></script>

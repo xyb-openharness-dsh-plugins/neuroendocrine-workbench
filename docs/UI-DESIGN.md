@@ -1,4 +1,4 @@
-# 小肽宝 UI 设计记录 v0.1
+# 小泌宝 UI 设计记录 v0.1
 
 状态：原型草案；无用户视觉确认。依据 SPEC v0.2、INTERACTION-DESIGN v1、DEV-REQUIREMENTS 与 NET 患者证据分层。
 
