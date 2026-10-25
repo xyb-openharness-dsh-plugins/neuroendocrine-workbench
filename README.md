@@ -4,6 +4,21 @@
 
 当前状态：M0 骨架 + M1 调研/SPEC 已完成，M2 原型草案可预览；真实业务尚未实现，G2 未签认。交互原型入口：[prototypes/v0.1/index.html](prototypes/v0.1/index.html)。原型记录：[PROTOTYPE-REVIEW](docs/PROTOTYPE-REVIEW.md)，交互路径：[INTERACTION-DESIGN](docs/INTERACTION-DESIGN.md)，HVT 审核：[HVT-REVIEW](docs/HVT-REVIEW.md)。项目提示词：[DESIGN-PROMPT](docs/DESIGN-PROMPT.md)，专用通用提示：[NEW-CANCER-WORKBENCH](prompts/NEW-CANCER-WORKBENCH.md)，需求：[BRIEF](docs/BRIEF.md)，规格：[SPEC](docs/SPEC.md)，先读 [AGENTS](AGENTS.md)。
 
+
+<details>
+<summary><b>? 疾病概要</b>（定义 · 规范与指南 · 治疗全景 · 发展趋势；看板 ? 图标弹窗待各仓自行迭代落地）</summary>
+
+**定义**：神经内分泌和肾上腺肿瘤（NET）：按 WHO 消化系统肿瘤分类第 5 版分级（G1 ≤2% / G2 3–20% / NET G3 >20% 分化良好 vs NEC 低分化）；本仓围绕分级档案、生化+影像双线随访与治疗事件整理病程。
+
+**医学资料规范和指南情况**：NCCN Neuroendocrine and Adrenal Tumors **3.2025**（官网核实，检索日 2026-10-25）；CSCO《神经内分泌肿瘤诊疗指南》2025 版（2025-04 发布）。
+
+**目前治疗全景概要**：生长抑素类似物注射线（奥曲肽 LAR 齐鲁首仿 2023、兰瑞肽均已上市）；依维莫司 / 舒尼替尼 / 索凡替尼 NMPA 获批（适应症口径见 SOURCES）；PRRT（177Lu-DOTATATE）国内未正式获批（先通 2025-04 受理）；手术亦为治疗事件之一。方案取舍由主管医生决定，本仓不载剂量。
+
+**发展趋势**：NCCN 版本迭代（2.2025→3.2025）；PRRT 国内审批受理中（未核实获批）；新方向仅见于研究文献线索，本仓不载疗效信息。
+
+以上为公开资料的整理性概要，不构成诊断或治疗建议；版本与出处详见 [SPEC](docs/SPEC.md) 医学口径基准与 SOURCES。
+</details>
+
 ## M2 交互原型（模拟数据）
 
 可直接打开 `prototypes/v0.1/index.html`。当前完成一张首页实渲截图（1280×720）；其余原型截图尚未取得。
