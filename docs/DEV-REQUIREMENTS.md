@@ -29,5 +29,5 @@
 
 ## 六、闸口留痕
 - **G1（调研/SPEC）**：2026-10-25 完成 M1 三路调研（医学核数/用户研究/家族对比），产物：USER-RESEARCH v0.2、DIFF-MATRIX（一级重名率实测 63.6%≤70%✅）、SCENARIOS v0.2（一期 S1/S2/S3/S5/S7）、SPEC v0.2、INTERACTION-DESIGN v1（28 号三张表）、SOURCES M01–M10。用户未应答，**按推荐项执行，签认待补**（可回退：用户可改一期场景集/页面树，改动走 DESIGN-SESSION 版本留痕）。
-- **G2（原型）**：M2 原型 v0.1 已制作；浏览器 DOM 仅实测首页与 `#metrics` 页面，IAB 点击与截图调用超时；截图四张、C1–C12、X1–X4、用户视觉确认均未完成。**G2 未通过，停在此闸口**。原型状态与差距见 PROTOTYPE-REVIEW、HVT-REVIEW、ONE-CHART-SPEC。
+- **G2（原型）**：M2 原型 v0.1.3 已重做指标卡与一图秀布局；当前 0.1.3 改动后尚无浏览器实测；此前 DOM 仅覆盖首页及部分 hash 页面。IAB 点击与截图调用超时；当前版截图四张、C1–C12、X1–X4、用户视觉确认均未完成。**G2 未通过，停在此闸口**。原型状态与差距见 PROTOTYPE-REVIEW、HVT-REVIEW、ONE-CHART-SPEC。
 - G3（数据模型）：待 M3。

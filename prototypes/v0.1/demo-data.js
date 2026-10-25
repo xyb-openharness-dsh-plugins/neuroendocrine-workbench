@@ -8,15 +8,15 @@ window.NET_DEMO = {
   ],
   metricSeries: [
     { id: 'biochem', title: '生化标志物', subtitle: '血液 / 尿液 · 保留各次报告参考区间', icon: '◉', metrics: [
-      { id: 'cga', name: '嗜铬粒蛋白 A', short: 'CgA', unit: 'ng/mL', latest: 168, date: '2026-10-18', reference: '本模拟实验室参考上限 100', values: [205,188,174,168], dates: ['06-02','07-14','09-01','10-18'], color: '#c7824e', note: '模拟结果；PPI 使用、肾功能等可能影响读数，参考区间以实际报告为准。' },
-      { id: 'h5hiaa', name: '尿 5-HIAA（24 小时）', short: '5-HIAA', unit: 'mg/24h', latest: 19, date: '2026-10-18', reference: '本模拟实验室参考上限 25', values: [23,21,20,19], dates: ['06-02','07-14','09-01','10-18'], color: '#6d9e91', note: '模拟结果；饮食与采集方式会影响结果，具体以实际报告为准。' },
-      { id: 'nse', name: '神经元特异性烯醇化酶', short: 'NSE', unit: 'ng/mL', latest: 14.6, date: '2026-10-18', reference: '模拟参考区间 0–16.3', values: [13.2,14.1,13.8,14.6], dates: ['06-02','07-14','09-01','10-18'], color: '#7d8eb6', note: '模拟结果；不同实验室与检测方法结果可能不同。' }
+      { id: 'cga', name: '嗜铬粒蛋白 A', short: 'CgA', unit: 'ng/mL', latest: 168, date: '2026-10-18', reference: '本模拟实验室参考上限 100', values: [205,188,174,168], dates: ['06-02','07-14','09-01','10-18'], sources: ['模拟报告 · 2026-06-02','模拟报告 · 2026-07-14','模拟报告 · 2026-09-01','模拟报告 · 2026-10-18'], color: '#c7824e', category: '生化标志物', precision: 0, note: '模拟结果；PPI 使用、肾功能等可能影响读数，参考区间以实际报告为准。' },
+      { id: 'h5hiaa', name: '尿 5-HIAA（24 小时）', short: '5-HIAA', unit: 'mg/24h', latest: 19, date: '2026-10-18', reference: '本模拟实验室参考上限 25', values: [23,21,20,19], dates: ['06-02','07-14','09-01','10-18'], sources: ['模拟尿检报告 · 2026-06-02','模拟尿检报告 · 2026-07-14','模拟尿检报告 · 2026-09-01','模拟尿检报告 · 2026-10-18'], color: '#6d9e91', category: '生化标志物', precision: 0, note: '模拟结果；饮食与采集方式会影响结果，具体以实际报告为准。' },
+      { id: 'nse', name: '神经元特异性烯醇化酶', short: 'NSE', unit: 'ng/mL', latest: 14.6, date: '2026-10-18', reference: '模拟参考区间 0–16.3', values: [13.2,14.1,13.8,14.6], dates: ['06-02','07-14','09-01','10-18'], sources: ['模拟报告 · 2026-06-02','模拟报告 · 2026-07-14','模拟报告 · 2026-09-01','模拟报告 · 2026-10-18'], color: '#7d8eb6', category: '生化标志物', precision: 1, note: '模拟结果；不同实验室与检测方法结果可能不同。' }
     ]},
     { id: 'imaging', title: '影像随访', subtitle: '影像报告原文与日期 · 不自动判读', icon: '▧', metrics: [
-      { id: 'lesion', name: '胰腺病灶长径（报告记录）', short: '病灶长径', unit: 'mm', latest: 21, date: '2026-09-01', reference: '模拟影像报告测量值；不作疗效判断', values: [24,23,22,21], dates: ['2025-09','2025-12','2026-04','2026-09'], color: '#927eae', note: '模拟报告测量值。影像描述与测量请由医生结合原图解读。' }
+      { id: 'lesion', name: '胰腺病灶长径（报告记录）', short: '病灶长径', unit: 'mm', latest: 21, date: '2026-09-01', reference: '模拟影像报告测量值；不作疗效判断', values: [24,23,22,21], dates: ['2025-09','2025-12','2026-04','2026-09'], sources: ['模拟 CT 报告 · 2025-09','模拟 MRI 报告 · 2025-12','模拟 MRI 报告 · 2026-04','模拟 MRI 报告 · 2026-09'], color: '#927eae', category: '影像随访', precision: 0, note: '模拟报告测量值。影像描述与测量请由医生结合原图解读。' }
     ]},
     { id: 'hormone', title: '激素与症状', subtitle: '亚群/症状按各自语境记录', icon: '⌁', metrics: [
-      { id: 'glucose', name: '空腹血糖', short: '空腹血糖', unit: 'mmol/L', latest: 5.8, date: '2026-10-18', reference: '模拟参考区间 3.9–6.1', values: [5.5,5.7,5.6,5.8], dates: ['06-02','07-14','09-01','10-18'], color: '#c48691', note: '模拟结果；以实际报告参考区间及医生意见为准。' }
+      { id: 'glucose', name: '空腹血糖', short: '空腹血糖', unit: 'mmol/L', latest: 5.8, date: '2026-10-18', reference: '模拟参考区间 3.9–6.1', values: [5.5,5.7,5.6,5.8], dates: ['06-02','07-14','09-01','10-18'], sources: ['模拟生化报告 · 2026-06-02','模拟生化报告 · 2026-07-14','模拟生化报告 · 2026-09-01','模拟生化报告 · 2026-10-18'], color: '#c48691', category: '激素与症状', precision: 1, note: '模拟结果；以实际报告参考区间及医生意见为准。' }
     ]}
   ],
   pathway: [
