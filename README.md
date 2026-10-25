@@ -2,11 +2,19 @@
 
 神经内分泌和肾上腺肿瘤（NET）患者工作台：分级档案、生化+影像双线随访、SSA 注射与 PRRT 治疗事件、基因/病理与临床试验匹配
 
-这是接入骨架，尚未实现真实业务。初始化后先将 [项目设计提示词](docs/DESIGN-PROMPT.md) 交给当前Agent；它应展示实际路径并以已有用户/场景/流程素材对齐设计者、研究与取舍原则。癌种项目另有 [完整专用提示词](prompts/NEW-CANCER-WORKBENCH.md)。需求见 [BRIEF](docs/BRIEF.md)，规格见 [SPEC](docs/SPEC.md)，任务见 [TASKS](docs/TASKS.md)；先读 [AGENTS](AGENTS.md)。CLI输出交接与首问，实际对话由Agent接续。
+当前状态：M0 骨架 + M1 调研/SPEC 已完成，M2 原型草案可预览；真实业务尚未实现，G2 未签认。交互原型入口：[prototypes/v0.1/index.html](prototypes/v0.1/index.html)。原型记录：[PROTOTYPE-REVIEW](docs/PROTOTYPE-REVIEW.md)，交互路径：[INTERACTION-DESIGN](docs/INTERACTION-DESIGN.md)，HVT 审核：[HVT-REVIEW](docs/HVT-REVIEW.md)。项目提示词：[DESIGN-PROMPT](docs/DESIGN-PROMPT.md)，专用通用提示：[NEW-CANCER-WORKBENCH](prompts/NEW-CANCER-WORKBENCH.md)，需求：[BRIEF](docs/BRIEF.md)，规格：[SPEC](docs/SPEC.md)，先读 [AGENTS](AGENTS.md)。
+
+## M2 交互原型（模拟数据）
+
+可直接打开 `prototypes/v0.1/index.html`。当前完成一张首页实渲截图（1280×720）；其余原型截图尚未取得。
+
+![小肽宝看板原型 v0.1（1280×720，模拟数据）](docs/assets/prototype-v0.1/dashboard-1280x720.png)
+
+原型含 11 个业务页、指标系列/翻转卡、一图秀指标选择窗口、治疗折叠卡、模拟试验匹配卡与设置页。大部分表单/保存/AI/真实检索仍是占位；交互路径走查、C1–C12 和窄宽实测未完成。详见 [PROTOTYPE-REVIEW](docs/PROTOTYPE-REVIEW.md)。
 
 ## 开发顺序
 
-先共创SPEC和候选数据关系，再交付HTML交互工作台；由用户确认对应版本/模块后，复核SCHEMA/API并实现生产功能。确认记录见docs/PROTOTYPE-REVIEW.md；模型不依赖前端Tab/流程。模板骨架不是业务已确认。
+先共创 SPEC 与候选数据关系，再交付 HTML 交互工作台；由用户确认对应版本/模块后，复核 SCHEMA/API 并实现生产功能。当前 M2 原型尚未获用户视觉确认，因此不得进入正式业务实现。模型不依赖前端 Tab/流程。
 
 ## 当前能力
 

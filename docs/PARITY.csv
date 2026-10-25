@@ -1,2 +1,7 @@
 id,原型版本与定位,原型内容或行为,当前实现,差异,偏离原因及依据,替代方案,组件与API,验收证据,状态
-EXAMPLE-ID,文件hash/Tab/模块,最近值→翻转→最近五次折线,待评估,待评估,无依据时视为实现缺口,待定,待定,未验证,待核对
+F-DASH,prototypes/v0.1/index.html#dashboard,看板入口+下一步安排+近期指标+最近整理,DOM预览可见（原型）,开发版未实现,尚在M2；原型截图未取得,无,prototype app.js setPage,浏览器DOM快照1280x720,原型草案
+F-METRIC,prototypes/v0.1/index.html#metrics,系列分组+3D卡+折线+语境背面,DOM hash直达可见；点击未验证,开发版未实现,尚在M2且C1-C12不全,无,prototype metricCard/svg/smoothPath,浏览器DOM快照；非交互通过,原型草案
+F-ONECHART,prototypes/v0.1/index.html#onechart,选择指标+最多4项+不可比说明,静态交互代码已写；浏览器未实测,开发版未实现,等待G2用户确认及C1-C12完成,无,prototype openPicker,ONE-CHART-SPEC C1-C12未全测,未验证
+F-TRIAL,prototypes/v0.1/index.html#trials,本地+外部试验匹配卡/匹配指数/来源,模拟卡片设计，未实测,无真实临床库/AI/外部服务,当前仅原型模拟数据,无,prototype pages.trials,无页面实际预览,原型草案
+F-PATHWAY,prototypes/v0.1/index.html#injection,治疗路径折叠五块结构,原生details代码已写，未实测,未实现打印验证/数据绑定,按32号折叠卡模板设计,无,prototype timeline,无展开与printToPDF证据,未验证
+F-SETTINGS,prototypes/v0.1/index.html#settings,患者目录/解析/临床数据包状态与保存取消,模拟设置页代码,无真实服务与状态,原型内明确标模拟,无,prototype pages.settings,无页面实际预览,原型草案

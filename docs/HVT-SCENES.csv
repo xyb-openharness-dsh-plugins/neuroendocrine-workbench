@@ -1,0 +1,5 @@
+id,scene,V,S,F,HVT,C,priority,level,evidence
+S1,病理报告到手→对照原文整理Ki-67/IHC与来源→分级档案+就诊问题,3,3,3,9,4,9,W,USER-RESEARCH痛点1/3研究支持；SCENARIOS S1；SPEC功能范围
+S2,复查拿到生化/影像→按系列回顾记录→趋势图与报告来源,3,3,3,9,3,18,G,USER-RESEARCH痛点2/5研究支持；SCENARIOS S2；ONE-CHART-SPEC C1-C12待实测
+S3,到SSA注射日→记录药物/日期/部位→注射时间线,2,3,2,6,4,6,W,USER-RESEARCH痛点5仅线索；SCENARIOS S3；原型可见但点击未实测
+S5,基因/IHC结果出来→本地/外部试验检索→匹配指数卡+来源原文,3,3,2,9,3,18,G,USER-RESEARCH痛点3研究支持；模拟匹配卡非真实检索；来源合同待实现
