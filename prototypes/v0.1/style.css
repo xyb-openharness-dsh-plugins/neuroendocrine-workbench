@@ -5,3 +5,25 @@
 @media(max-width:600px){.topbar{height:62px;padding:0 13px}.brand-mark{width:34px;height:34px}.brand small{font-size:10px}.demo-badge{font-size:10px;padding:6px 8px}.topbar-right{gap:6px}.ai-toggle{padding:7px 8px;font-size:10px}.icon-btn{padding:7px 8px}.icon-btn span{display:none}.workspace{min-height:calc(100vh - 98px)}.sidebar{top:62px}#main{padding:23px 14px 36px}.page-head{align-items:flex-start;flex-direction:column;margin-bottom:20px}.page-head h1{font-size:23px}.page-head>.primary-btn{align-self:stretch}.page-actions{width:100%;justify-content:flex-start}.page-actions .discuss-btn{flex:1}.profile-strip{flex-wrap:wrap}.profile-strip .text-btn{margin-left:0}.surface{padding:14px}.footer{height:36px;padding:0 12px;font-size:10px}.footer span:first-child{max-width:68%;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}.dashboard-columns{gap:10px}.mini-metric{grid-template-columns:95px minmax(0,1fr)}.note-row{grid-template-columns:61px 62px minmax(0,1fr)}.chart-row{grid-template-columns:minmax(0,1fr)}.chart-row .chart{height:92px}.chart-latest{grid-column:auto}.onechart-controls{padding:12px}.series-check-groups{grid-template-columns:1fr 1fr;gap:8px}.series-check-group{min-width:0}.series-check{gap:5px;padding:7px 2px}.series-check small{font-size:9px}.chart-legend{gap:7px 10px}.chart-legend-item{flex-wrap:wrap}.trend-row{grid-template-columns:minmax(72px,88px) minmax(0,1fr);gap:5px}.trend-label{gap:4px}.trend-label strong{font-size:10px}.trend-label small{font-size:9px}.trend-row .chart{height:96px}.metric-card{height:230px}.match-flow{align-items:stretch}.match-flow>div{max-width:30%}.match-flow small{font-size:9px}.match-flow>b{font-size:12px;align-self:center}.trial-card{grid-template-columns:minmax(0,1fr)}.criteria-grid,.assist-source-list{grid-template-columns:minmax(0,1fr)}.subpage-head{flex-direction:column}.subpage-actions{justify-content:stretch}.subpage-actions>*{flex:1}.match-score{border-left:0;border-top:1px solid #edf0eb;padding-top:10px;flex-direction:row;justify-content:flex-start}.match-score span{text-align:left}.saved-row{align-items:flex-start;flex-wrap:wrap}.saved-row>div{flex-basis:70%}.saved-row .text-btn{margin-left:46px}.phase-fold>summary{grid-template-columns:10px minmax(0,1fr) 68px}.phase-summary{grid-column:2/4}.fold-cue{grid-column:3;grid-row:1}.prrt-card{align-items:flex-start;flex-direction:column}.wellbeing-hero{align-items:flex-start;padding:16px}.wellbeing-art{width:50px;height:50px;font-size:25px}.callout>.soft-btn{margin-left:28px}}
 @media(prefers-reduced-motion:reduce){*,*::before,*::after{scroll-behavior:auto!important;animation-duration:.01ms!important;transition-duration:.01ms!important}}
 @media print{body{background:#fff}.sidebar,.agent-pane,.show-agent,.topbar-right,.primary-btn,.soft-btn,.text-btn,.footer{display:none!important}.workspace{display:block}.topbar{position:static;border:0}.phase-fold>summary .fold-cue{display:none}.phase-fold{break-inside:avoid}.phase-detail{display:grid!important}.metric-card{break-inside:avoid}}
+
+/* 36 号 · 疾病概要：把模式层的品牌色接到本仓绿色令牌上 */
+:root{--brand:var(--green);--brand-deep:var(--green-dark);--brand-soft:var(--mint)}
+
+/* 36 号 · 顶栏「?」入口（位置：版本 chip 左侧） */
+.primer-trigger{min-width:34px;min-height:34px;padding:0 9px;display:inline-flex;align-items:center;justify-content:center;font-size:14px;font-weight:700;line-height:1;color:var(--green-dark);background:var(--mint);border:1px solid #d5e5da;border-radius:999px}
+.primer-trigger:hover{background:#dcecdf}
+.primer-trigger:focus-visible{outline:3px solid var(--green-dark);outline-offset:2px}
+
+/* 36 号 §2.6 · 看板首卡：状态卡四件 */
+.status-card{margin:0 0 18px;padding:18px 20px;background:var(--surface);border:1px solid var(--line);border-radius:18px;box-shadow:var(--shadow);display:flex;flex-direction:column;gap:14px}
+.status-eyebrow{margin:0;color:var(--muted);font-size:11.5px;font-weight:600;letter-spacing:.04em}
+.status-main{display:flex;gap:26px;align-items:flex-start;justify-content:space-between;flex-wrap:wrap}
+.status-day{display:block;font-size:32px;line-height:1.15;color:var(--green-dark);font-weight:700;font-variant-numeric:tabular-nums}
+.status-day.pending{font-size:24px;color:var(--muted)}
+.status-anchor{display:block;margin-top:5px;color:var(--muted);font-size:11.5px}
+.status-now{display:flex;flex-direction:column;gap:6px;min-width:0;flex:1 1 320px;align-items:flex-start}
+.status-phase{align-self:flex-start;background:var(--peach);color:#8a5a37;border:1px solid #f0ddcc;border-radius:999px;padding:3px 10px;font-size:11.5px;font-weight:600}
+.status-state{font-size:13.5px;font-weight:600;color:var(--ink)}
+.status-next{font-size:12px;color:var(--muted)}
+.status-actions{display:flex;gap:9px;flex-wrap:wrap;align-items:center}
+.status-actions .primary-btn,.status-actions .soft-btn{min-height:40px}

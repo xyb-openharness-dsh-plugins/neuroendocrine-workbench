@@ -2,6 +2,13 @@
 
 只增不删；每条写清"改了什么 + 为什么 + 用户可见结果"。版本号与 VERSION、package.json 三处必须一致。
 
+## 0.1.8 — 2026-10-27
+
+- 36 号 v2 引入（指南可点 + 状态卡）：原型顶栏增加「?」入口与整页疾病概要（definition → evidence → landscape → trend），装机层 `lib/client.js` 内联同源数据并提供同款按钮与四段浮窗（返回 / 关闭 / Esc、关闭回焦、缺链接红标）。
+- 链接共 3 条官方入口，均经真浏览器验活：NCCN（guidelines-detail?id=1448）、WHO/IARC（Digestive System Tumours 5th ed. 2019）、ENETS（Guidelines & Standards of Care）。CSCO 2025 版未取得原件，表内 `nolink: true` + note（官方渠道发行 / 会员登录浏览，无公开免费全文），不编 URL。
+- 看板首卡新增状态卡四件：eyebrow / 锚点派生大字天数（原型「第 957 天」由确诊日 2024-03-12 与原型固定日 2026-10-25 派生，不手填；装机层无锚点显示「待初始化」并指向三步向导）/ 现状行 / 出口按钮排（主按钮 + 「疾病概要：神经内分泌肿瘤是什么？」）。
+- 新增 `scripts/check-primer-links.mjs`（L1–L12，含 `--self-test`）并接入 `npm run check`；新增 `scripts/probe-disease-primer.mjs`（P1–P9 + E0，原型实测 10/10）。
+
 ## 0.1.0 — 2026-10-25
 
 - 由社区脚手架 dsh-wb-cli@1.5.7 (c0bcc5d+dirty) 初始化，仅有注册骨架与健康接口，无业务功能。
