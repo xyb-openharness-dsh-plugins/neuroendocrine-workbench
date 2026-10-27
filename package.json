@@ -1,6 +1,6 @@
 {
   "name": "@community/neuroendocrine-workbench",
-  "version": "0.1.8",
+  "version": "0.1.9",
   "description": "神经内分泌和肾上腺肿瘤（NET）患者工作台：分级档案、生化+影像双线随访、SSA 注射与 PRRT 治疗事件、基因/病理与临床试验匹配",
   "private": true,
   "type": "module",
@@ -21,7 +21,7 @@
     "public"
   ],
   "scripts": {
-    "check": "node --check dsh/index.js && node --check lib/client.js && node scripts/check-workbench-package.mjs . && node scripts/check-host-contract.mjs && node scripts/smoke-activate.mjs && node scripts/check-primer-links.mjs",
+    "check": "node --check dsh/index.js && node --check lib/client.js && node scripts/check-workbench-package.mjs . && node scripts/check-host-contract.mjs && node scripts/smoke-activate.mjs && node scripts/check-primer-links.mjs && node scripts/check-ai-pane.mjs",
     "check:host": "node scripts/check-host-contract.mjs",
     "smoke:activate": "node scripts/smoke-activate.mjs",
     "verify:desktop": "node scripts/verify-desktop-load.mjs",
