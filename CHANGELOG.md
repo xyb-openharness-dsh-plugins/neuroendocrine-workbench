@@ -4,6 +4,8 @@
 
 ## 0.1.8 — 2026-10-27
 
+- 装机界面补齐（评审反馈：装了只有骨架）：把 `prototypes/v0.1` 提升为 `public/` 并随包发出（`files += public`）；新增 `dsh/server.js`（只从 public/ 出文件、拦 `..` 与符号链接逃逸）并把 `/api/neuroendocrine-workbench/ui/` 注册为静态前缀路由；`lib/client.js` 改成 iframe 装 public（探活失败才退回原骨架，骨架只作兜底）。同时按 34 号 §2b 去掉界面里自建的「AI 对话」面板与输入框，`和 AI 讨论` 只 `postMessage(neuroendocrine:agent-draft)` 给宿主原生会话。
+
 - 36 号 v2 引入（指南可点 + 状态卡）：原型顶栏增加「?」入口与整页疾病概要（definition → evidence → landscape → trend），装机层 `lib/client.js` 内联同源数据并提供同款按钮与四段浮窗（返回 / 关闭 / Esc、关闭回焦、缺链接红标）。
 - 链接共 3 条官方入口，均经真浏览器验活：NCCN（guidelines-detail?id=1448）、WHO/IARC（Digestive System Tumours 5th ed. 2019）、ENETS（Guidelines & Standards of Care）。CSCO 2025 版未取得原件，表内 `nolink: true` + note（官方渠道发行 / 会员登录浏览，无公开免费全文），不编 URL。
 - 看板首卡新增状态卡四件：eyebrow / 锚点派生大字天数（原型「第 957 天」由确诊日 2024-03-12 与原型固定日 2026-10-25 派生，不手填；装机层无锚点显示「待初始化」并指向三步向导）/ 现状行 / 出口按钮排（主按钮 + 「疾病概要：神经内分泌肿瘤是什么？」）。
