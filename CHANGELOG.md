@@ -2,6 +2,16 @@
 
 只增不删；每条写清"改了什么 + 为什么 + 用户可见结果"。版本号与 VERSION、package.json 三处必须一致。
 
+## 0.1.10 — 2026-10-28
+
+- **修装机后业务区空白（根因）**：`dsh/index.js` 把静态路由注册成 `kind: 'prefix', path: '/api/neuroendocrine-workbench/ui/'`，
+  而宿主 `dsh-host-webserver` 的 `match()` 判定是 `pathname === prefix || pathname.startsWith(prefix + '/')`——前缀以 `/` 结尾时，
+  子路径要命中 `…/ui//`。结果只有 iframe 入口页 `/ui/` 能命中，`/ui/app.js`、`/ui/style.css` 全部落到宿主的 SPA 兜底
+  （200 text/html），浏览器把 HTML 当 JS/CSS 解析，面板只剩顶栏与分栏，业务区空白。
+  改为注册不带尾斜杠的 `/api/neuroendocrine-workbench/ui`，静态层仍按尾斜杠入口剥前缀。用户可见结果：装机后 iframe
+  正常加载 `public/index.html` 与四件套。
+- 版本升 0.1.10（VERSION / package.json 同步）。
+
 ## 0.1.8 — 2026-10-27
 
 - 装机界面补齐（评审反馈：装了只有骨架）：把 `prototypes/v0.1` 提升为 `public/` 并随包发出（`files += public`）；新增 `dsh/server.js`（只从 public/ 出文件、拦 `..` 与符号链接逃逸）并把 `/api/neuroendocrine-workbench/ui/` 注册为静态前缀路由；`lib/client.js` 改成 iframe 装 public（探活失败才退回原骨架，骨架只作兜底）。同时按 34 号 §2b 去掉界面里自建的「AI 对话」面板与输入框，`和 AI 讨论` 只 `postMessage(neuroendocrine:agent-draft)` 给宿主原生会话。
